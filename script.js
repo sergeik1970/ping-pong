@@ -140,7 +140,7 @@ function collidePaddlesWithBall() {
 
 // если есть второй игрок
 function secondPlayer() {
-    document.addEventListener("keydown", (event) =>  {
+    document.addEventListener("keydown", (event) => {
         console.log(event)
         if (event.key == "ArrowUp") {
             rightPaddle.dy = -paddleSpeed;
@@ -149,13 +149,13 @@ function secondPlayer() {
             rightPaddle.dy = paddleSpeed
         }
     });
-    
+
     document.addEventListener("keyup", (event) => {
         if (event.key == "ArrowUp" || event.key == "ArrowDown") {
             rightPaddle.dy = 0;
         }
     })
-    }
+}
 
 
 // Искусственный интелект для правой ракетки
@@ -224,8 +224,9 @@ function loop() {
 
     secondPlayer()
 
-    // aiControl()sw
-
+    if (useAi == true) {
+        aiControl()
+    }
     resetGame()
 
 
@@ -234,16 +235,16 @@ function loop() {
     requestAnimationFrame(loop);
 }
 
+let useAi = false
+
 // Диалоговое окно
-document.addEventListener("keydown", (event) => {
-    if (event.key == "i" || event.key == "ш") {
-        const numberOfPlayers = confirm("Включить версию для одного игрока?")
-        if (numberOfPlayers === true) {
-            // Как удалить secondPlayer и добавить aiControl?
-            alert("Теперь Вы играете с искусственным интелектом)")
-        }
-    }
-})
+
+const numberOfPlayers = confirm("Включить версию для одного игрока?")
+if (numberOfPlayers === true) {
+    // Как удалить secondPlayer и добавить aiControl?
+    alert("Теперь Вы играете с искусственным интелектом)")
+    useAi = true
+}
 
 // Отслеживаем нажатия на кнопки управления
 
