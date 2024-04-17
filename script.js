@@ -238,7 +238,7 @@ function loop() {
 let useAi = false
 
 // Диалоговое окно
-
+alert("Эта игра доступна только на компьютере!")
 const numberOfPlayers = confirm("Включить версию для одного игрока?")
 if (numberOfPlayers === true) {
     // Как удалить secondPlayer и добавить aiControl?
